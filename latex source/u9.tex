@@ -1,0 +1,147 @@
+\input{src/header}
+
+\newcommand{\dozent}{Lutz Prechelt}
+\newcommand{\tutor}{Samuel Domiks}
+\newcommand{\tutoriumNo}{02\\Materialien: Latex, Skript}
+\newcommand{\ubungNo}{09}
+\newcommand{\veranstaltung}{Softwaretechnik}
+\newcommand{\semester}{SoSe21}
+\newcommand{\studenten}{Jonny Lam \& Thore Brehmer}
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{src/titlepage}
+
+% /////////////////////// Task 1 /////////////////////////
+\section{Begriffe}
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Was versteht man im Kontext der Softwareentwicklung unter dem Begriff „Information Hiding“ ? Erläutern Sie das Prinzip und erklären Sie, in welchem Zusammenhang es zum „Need to Know“-Prinzip steht.} \\
+    Unter „Information Hiding" versteht man, das verstecken/verbergen von Daten und Informationen vor anderen Zugriffen bzw. vom Zugriff von außen.\\
+    Beim Need-to-know Prinzip verbirgt man die Informationen um Risiken in  Vorhinein zu reduzieren.\\ Die Informationen sind nur für die, die es brauchen zugänglich.[1]
+    % /////////////////////// b /////////////////////////
+    \item {\itshape Warum ist das Prinzip des Information Hiding sinnvoll? Erläutern Sie dieses an einem Beispiel.} 
+    Angenommen wir entwickeln ein Programm um das Gehalt der Mitarbeiter zu berechnen.\\ Dann will ich nicht, dass meine Mitarbeiter freien Zugang zu der Methode haben, die den Gehalt berechnet.\\ Zum einen, weil die sich beschweren können warum der andere mehr bekommt oder auch, dass Konkurrenten (andere Arbeitgeber) mehr bieten können. Also Information Hiding ist sinnvoll um wichtige Informationen vor Personen zu schützen, denen das nichts angeht bzw. von dem man nicht will, dass sie die Information bekommen.
+   
+
+    % /////////////////////// c /////////////////////////
+    \item {\itshape Was versteht man unter dem „Design by Contract“-Prinzip? In welchem Kontext wirdes eingesetzt und warum?} \\
+    Durch Contracts (Verträge) werden Abmachungen zwischen einzelne Programmmodule (Aufrufender und Aufgerufener) gemacht für die Verwendung von Schnittstellen. Diese Verträge soll die Kommunikation zwischen Programmodule sicherstellen. [2]
+   
+    % /////////////////////// d /////////////////////////
+    \item {\itshape Erläutern Sie, in welchem Zusammenhang die BegriffeOCL, Invariante, Design by Con-tract, precondition, constraints, postcondition stehen.} \\
+    Mit \textbf{OCL} können wir bei der Modellierung notwendige Randbedingungen formell festlegen. 
+    Diese Randbedingungen nennen wir auch \textbf{Constraints}, die nach dem „\textbf{Design by Contract}" Prinzip gehen. Von den Constraints gibt es mehrere Arten, einmal Invarianten, die sind zu jedem Zeitpunkt wahr. Dann gibt es noch \textbf{precondition} und \textbf{postcondition}, pre Condition muss vor dem Aufruf wahr sein und post Condition nach dem Aufruf. [3] \\
+    \\
+    \textbf{Quellen:}\\
+    \textbf{[1]:} Vorlesung 13 und \url{https://de.wikipedia.org/wiki/Datenkapselung_(Programmierung)} \\
+    \textbf{[2]:} Vorlesung 13 und \url{https://de.wikipedia.org/wiki/Design_by_contract} \\
+    \textbf{[3]:} Vorlesung 13 und \url{https://de.wikipedia.org/wiki/Object_Constraint_Language#:~:text=Die%20Object%20Constraint%20Language%20(OCL,von%20Computerprogrammen%20formal%20festlegen%20können.&text=OCL%20ist%20seit%20der%20UML,besteht%20auch%20in%20der%20Modelltransformation.} \\
+    
+\end{enumerate}
+
+% /////////////////////// Task 2 /////////////////////////
+\section{OCL lesen und schreiben}
+In einem Prüfungsverwaltungssystem sollen die Klausurergebnisse und die Punktzahlen derStudierenden bei den Lösungen der einzelnen Aufgaben verwaltet werden. Das folgende UML-Klassendiagramm modelliert einen Teil der benötigten Daten.
+
+\includegraphics[width=1\textwidth]{src/u9/task2/uml.png}
+
+    
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Drücken Sie auf Basis des Diagramms die OCL-Constraints c1 bis c3n natürlichsprachlich  aus,  also  in  einer  Form,  die  Sie  in  einem  Gespräch  mit  einer  Person  ohne Informatik-Hintergrund verwenden würden.}
+    
+    \includegraphics[width=1\textwidth]{src/u9/task2/code.png}
+    
+    \begin{enumerate}[{c}1:]
+        \item Eine Aufgabe hat eine Punktzahl größer Null.
+        \item Ein Kursteilnehmer hat genau soviel Lösungen, wie eine Klausur aufgaben hat. Anders gesagt: ein Kursteilnehmer muss genau eine Lösung für jede Klausur Aufgabe haben.
+        \item Für jeden Teilnehmer an der Klausur gilt: Wenn die Klausur bestanden ist, dann hat jede Klausur Aufgabe von den Teilnehmer mehr als Null Punkte. Außerdem ist wichtig, dass die Aufgaben nicht Klausur übergreifend betrachtet werden. (Bsp. Klausur1: 1. bestanden, 2. nicht bestanden. Klausur2: 1. nicht bestanden, 2. bestanden.
+        Daraus folgt trotzdem nicht bestanden!)
+    \end{enumerate}
+    
+    % /////////////////////// b /////////////////////////
+    \item {\itshape Geben Sie OCL-Constraints an, die die folgenden Sachverhalte formalisieren. AchtenSie darauf, syntaktisch einwandfreie OCL-Ausdrücke zu formulieren. Das schließt auchdie Beachtung der genauen Schreibweisen von Klassen, Attributen, Operationen undAssoziationen aus dem UML-Klassendiagramm ein.Schauen Sie auch in der OCL 2.4 Spezifikation (http://www.omg.org/spec/OCL/2.4/PDF) nach, falls Ihnen Ausdrucksmittel fehlen.}
+    \begin{enumerate}
+        \item {\itshape In jeder Klausur gibt es mindestens eine Aufgabe mit genau einem Punkt.}
+        \lstinputlisting[language=python, linerange={1-3}]{src/u9/task2/ocl.txt}
+        
+        \item {\itshape Eine Nachklausur kann keine Nachklausur haben.}
+        \lstinputlisting[language=python, linerange={5-8}]{src/u9/task2/ocl.txt}
+        
+        \item {\itshape Ist ein/e Kursteilnehmer/in zugelassen, gibt es für jede Klausuraufgabe auch eine Lösung von ihm/ihr.}
+        \lstinputlisting[language=python, linerange={10-13}]{src/u9/task2/ocl.txt}
+
+    \end{enumerate}
+
+\end{enumerate}
+
+
+
+% /////////////////////// Task 3 /////////////////////////
+\section{OCL-Modellerweiterungen}
+Diese Aufgabe baut auf dem gleichen UML-Modell auf wie Aufgabe 9-2. Nun soll zusätzlich auch die Klausurkorrektur modelliert werden: Bei der Korrektur geht der/die Dozent/in alle Lösungen einzeln durch, bewertet sie jeweils und errechnet die Gesamtpunktzahl für jede/n Teilnehmer/in.
+
+    
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Erweitern Sie das Modell nun um eine Operation korrigieren mit passender Signatur sowie  ein  neues  Attribut;  darüber  hinaus  darf das  Klassendiagramm  in  keiner  Weise verändert werden (also keine neuen Klassen, veränderte Sichtbarkeiten, etc.). Die Operation korrigieren wird aufgerufen, sobald der/die Dozent/in eine Lösung korrigiert hat.
+    Es soll damit insbesondere möglich sein, dass
+    \begin{itemize}
+        \item das Attribut punkte in Lösung gefüllt wird, und
+        \item die erreichte Gesamtpunktzahl des Teilnehmers aktualisiert wird.
+    \end{itemize}
+    Beschreiben Sie zunächst verbal, was korrigieren genau leisten soll. Finden Sie geeignete  Stellen  (und  für  das  neue  Attribut:  auch  einen  geeigneten  Namen)  für  die neuen Member im Klassendiagramm.
+    }
+    
+    \textbf{Lösung:}
+    \begin{itemize}
+        \item Die Methode korrigieren soll punkte in den Lösungen sowie in der Gesamtpunktzahl des Teilnehmers aktualisieren. 
+        \item Da die punkte von Lösungen privat sind, wir aber darauf zugriff brauchen, schreiben wir die \underline{Methode in die Klasse Lösung}. Also: \textbf{+korrigieren(punkte: int)}
+        \item Damit wir die Gesamtpunktzahl für den Kursteilnehmer eintragen können, erstellen wir ein public Attribut \underline{gesamtpunktanzahl im Kursteilnehmer}. Also: \textbf{+gesamtpunktanzahl : int}
+    \end{itemize}
+    
+    % /////////////////////// b /////////////////////////
+    \item {\itshape Gehen Sie zunächst in einer ersten Version davon aus, dass korrigieren nur einmal pro Exemplar der Klasse Lösung aufgerufen werden darf; die einmal gesetzte Punktzahl ist danach unveränderlich. Spezifizieren Sie sowohl möglichst strenge Vorbedingungen für Ihre Operation korrigieren, als auch alle Effekte(post condition)der Operation komplett in OCL.}
+    
+    Wir möchten mit den OCL Bedienungen folgendes aussagen:
+    \begin{itemize}
+        \item \textbf{Pre:}
+        \begin{itemize}
+            \item Es können nur Lösungen korrigiert werden, welche noch nicht korrigiert wurden.
+            \item Es dürfen nicht negative Punkte für die Lösung eingetragen werden.
+            \item Es dürfen nicht mehr Punkte, als die Aufgabe angibt, für die Lösung eingetragen werden.
+            \item Der Teilnehmer muss zugelassen sein, damit eine Lösung korrigiert wird.
+        \end{itemize}
+        
+        \item \textbf{Post:}
+        \begin{itemize}
+            \item Nach der Korrektur wurden die Punkte korrekt eingetragen.
+            \item Nach der Korrektur wurde die Lösung wirklich korrigiert (Vielleicht unnötig?)
+            \item Nach der Korrektur wurden die Punkte auf die Gesamtpunktzahl des Teilnehmers addiert.
+        \end{itemize}
+        
+    \lstinputlisting[language=python, linerange={1-12}]{src/u9/task3/ocl3.txt}
+    \end{itemize}
+
+
+
+    % /////////////////////// c /////////////////////////
+    \item {\itshape Gehen Sie nun von der realistischeren Anforderung aus, dasskorrigierenmehrfachaufgerufen werden kann, um z.B. die Punktzahl einer Lösung bei einer Klausureinsichtzu korrigieren.Spezifizieren  Sie  wiederum  möglichst  strenge  Vorbedingungen  und  alle  Effekte  derOperation in OCL.}
+    \begin{itemize}
+        \item Wir haben lediglich die Bedienung \dq Es können nur Lösungen korrigiert werden, welche noch nicht korrigiert wurden.\dq \ aus Zeile 4 entfernt.
+        \item Sowie zu der Bedienung \dq Nach der Korrektur wurden die Punkte auf die Gesamtpunktzahl des Teilnehmers addiert.\dq \ aus Zeile 12 (jetzt 11) etwas hinzugefügt.
+        \item Denn nun muss der alte Punkte Wert für die Aufgabe noch von der Gesamtpunktzahl abgezogen werden, wenn man einen neuen Punkte Wert hinzu addiert will.
+    \end{itemize}
+    \lstinputlisting[language=python, linerange={15-25}]{src/u9/task3/ocl3.txt}
+
+    % /////////////////////// d /////////////////////////
+    \item {\itshape Spezifizieren Sie den Effekt der OperationKlausur.punkteanzahlunter Verwendungdes OCL-Schlüsselwortesresult.Hinweis: Der resultierende Ausdruck passt bequem auf eine Zeile. Recherchieren Siebei Bedarf nach OCL-Collections und ihren Operationen.}
+    \lstinputlisting[language=python, linerange={28-30}]{src/u9/task3/ocl3.txt}
+
+\end{enumerate}
+
+
+
+
+\end{document}

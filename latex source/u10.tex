@@ -1,0 +1,214 @@
+\input{src/header}
+
+\newcommand{\dozent}{Lutz Prechelt}
+\newcommand{\tutor}{Samuel Domiks}
+\newcommand{\tutoriumNo}{02\\Materialien: Latex, Skript}
+\newcommand{\ubungNo}{10}
+\newcommand{\veranstaltung}{Softwaretechnik}
+\newcommand{\semester}{SoSe21}
+\newcommand{\studenten}{Jonny Lam \& Thore Brehmer}
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{src/titlepage}
+
+% /////////////////////// Task 1 ///////////////////////// In Arbeit bei Thore
+\section{Begriffe}
+\begin{enumerate}[(a)]
+% /////////////////////// a /////////////////////////
+\item{\itshape Erklären Sie den Unterschied zwischen Verifizieren und Validieren.}
+\begin{itemize}
+    \item \textbf{Verifizieren [1]:} Bei der Verifizierung wird überprüft ob eine Software seiner Spezifikation entspricht.\\
+    So können wir überprüfen, ob die zuvor gesetzten Ziele mit den erreichten Zielen erreicht werden können.\\
+    Mit Hilfe der Verifizierung können wir Fehler und Probleme in einem Entwicklungsprozess frühzeitig erkennen und so auch die Kosten reduzieren. \\
+    Mit Hilfe der Verifizierung können wir jedoch keine Fehler in der Spezifikation feststellen.\\
+    
+    \item \textbf{Validieren [2]:} Erst nach der Verifizierung folgt die Validierung. \\
+    Bei der Validierung wird überprüft ob die Software auch wirklich das erreicht, was gefordert wird. \\
+    Das passiert meistens im Rahmen eines Feldversuchs, wo mehrere Anwender/Nutzer der Software sich mit dem Produkt auseinander setzt.\\
+    Der Nutzer soll das Produkt nach der Zielerreichung untersuchen und unter verschiedene Rahmenbedingungen.
+\end{itemize}
+\textbf{Quellen:} \\
+\begin{enumerate}[{[1]}]
+    \item ``Verifizierung'', \url{https://de.wikipedia.org/wiki/Verifizierung} .
+[aufgerufen am 20.06.2021]
+    \item ``Validierung'', \url{https://de.wikipedia.org/wiki/Validierung\_(Informatik)} [aufgerufen am 20.06.2021]
+\end{enumerate}
+% /////////////////////// b /////////////////////////
+\item{\itshape  Woraus besteht ein Testfall? Wann nennt man einen Testfall erfolgreich und was ist der Gedanke dahinter?}
+    \begin{itemize}
+        \item Ein Testfall besteht aus dem \textbf{Systemzustand}, der \textbf{Eingaben} und dem (erwarteten) \textbf{Systemverhalten}
+        \item Wenn wir von einen Defekttest sprechen, ist der Testfall \textbf{erfolgreich}, sofern eine Abweichung vom erwarteten Systemverhalten und den wirklichen Rückgabewert vorliegt.
+        \item Der Testfall ist genau deswegen erfolgreich, weil wir diese Versagen (failures) finden wollen.
+    \end{itemize}
+
+% /////////////////////// c /////////////////////////
+\item{\itshape Wie hängen Versagen, Fehler und Defekt zusammen?}
+    \begin{itemize}
+        \item \textbf{Versagen} ist ein falsches Verhalten des Programmes. Das falsche Verhalten kommt durch einen \textbf{Defekt} im Program. Der defekt entsteht durch \textbf{Fehler} von Softwareentwicklern. (Falschtun oder Versäumnis) 
+        \item \underline{In Kurz}: Ein Versagen entsteht durch ein Defekt. Ein Defekt entsteht durch einen Fehler.
+    \end{itemize}
+
+% /////////////////////// d /////////////////////////
+\item{\itshape Erklären Sie jeweils die Gemeinsamkeiten und Unterschiede zwischen}
+    \begin{enumerate}[1.]
+        \item Strukturtest und Durchsicht
+        \begin{itemize}
+            \item In \textbf{Strukturtests} wird das Programm \underline{dynamisch} geprüft während in \textbf{Durchsicht} das Program \underline{manuell statisch} geprüft wird.
+        \end{itemize}
+        
+        \item Lasttest und Stresstest
+        \begin{itemize}
+            \item Ein \textbf{Lasttest} wird das Systemverhalten bei einer realistischen Last beobachtet (z.B. viele Benutzer), während beim \textbf{Stresstest} das Systemverhalten bei einer unrealistischen Last (Überlastung) beobachtet wird. (z.B. sehr viele unrealistische Eingaben)
+        \end{itemize}
+        
+        \item Testen und Debugging
+        \begin{itemize}
+            \item Beim \textbf{Testen} versucht man Versagen(failures) im Programm zu finden, während man beim \textbf{Debugging} versucht die Ursache des Versagens zu finden und diesen zu beheben.
+        \end{itemize}
+        
+        \item Funktionstest und Akzeptanztest
+        \begin{itemize}
+            \item Mit \textbf{Funktionstest} werden Testfälle genutzt um Versagen zu finden, während man mit \textbf{Akzeptanztests} zeigen möchte dass das Produkt nun nutzbar (tauglich ist).
+        \end{itemize}
+        
+        \item Top-Down-Testen und Bottom-up-Testen
+        \begin{itemize}
+            \item \textbf{Top-Down} und \textbf{Bottom-up} sind beides Verfahren die einen eine Vorlage bieten, welche Teile des Systems man als erstes testet. 
+            \item Dabei fängt man bei Bottom-up mit den untersten Teilen an (da sie keine anderen Teile als vorraussetzung haben) und bei Top-Down mit dem Hauptprogramm. (da für sie keine Treiber nötig sind, weil alles, was sie aufruft, schon verfügbar und getestet ist)
+        \end{itemize}
+    \end{enumerate}
+    
+\end{enumerate}
+
+% /////////////////////// Task 2 /////////////////////////
+\section{Testtechniken anwenden und bewerten}
+\begin{enumerate}[(a)]
+% /////////////////////// a /////////////////////////
+\item{\itshape Spezifizieren Sie die Vorbedingung für die Operation klassifiziereDreieck in OCL.}
+    \begin{itemize}
+        \lstinputlisting[language=python,]{src/u10/ocl.txt}
+    \end{itemize}
+
+% /////////////////////// b /////////////////////////
+\item{\itshape  Black-Box: Erstellen Sie mindestens sieben Testfälle allein aufgrund der Schnittstellenbeschreibung der Operation durch Betrachtung unterschiedlicher Fälle, die sich
+darin unterscheiden, dass Sie jeweils ein anderes Verhalten des Systems erwarten;
+vermeiden Sie unnötige Dopplungen (Stichworte: Äquivalenzklassen und Randfälle).
+Beschränken Sie sich nicht nur auf gültige Eingaben (Stichwort: Fehlerfälle).
+Listen Sie die Testfälle tabellarisch auf. Beschreiben Sie bei jedem Testfall kurz, warum
+Sie diesen in die Menge der Testfälle aufgenommen haben.
+}
+    \begin{itemize}
+         \begin{tabular}{l|l|l|l}
+            Nr. &  Äquivalenzklasse & Beschreibung & Testfall (\& Erwarteter Rückgabewert)\\ \hline  
+            1 & Eingabewerte & Negative Zahl & (-1,3,5), Error\\ \hline 
+            2 & Eingabewerte & Null & (0,3,5), Error\\ \hline 
+            3 & Art des Dreiecks & Gleichseitig & (1,1,1), Gleichseitig \\ \hline 
+            4 & Art des Dreiecks & Rechtwinklig & (1,1,$\sqrt[2]{2})$, Rechtwinklig \\ \hline 
+            5 & Art des Dreiecks & Gleichschenklig & (1,2,2), Gleichschenklig \\ \hline 
+            6 & Art des Dreiecks & Normales Dreieck & (2,3,4), Normal\\ \hline 
+            7 & Art des Dreiecks & kein Dreieck & (1,1,2), Error \\ \hline 
+            8 & Größe der Eingabewerte & sehr groß & (MAX\_VALUE,2,MAX\_VALUE-1), Normal \\ \hline 
+        \end{tabular}
+    \end{itemize}
+
+
+% /////////////////////// c /////////////////////////
+\item{\itshape White-Box: Erstellen Sie nun Testfälle aufgrund der Struktur des Programms, mit dem
+Ziel, Zweigüberdeckung (C1, engl. branch coverage) zu erreichen, d.h. dass an jeder
+Verzweigung im Programm beide Äste ausgeführt wurden.
+Auf der zweiten Seite dieses Übungsblattes finden Sie eine Implementierung für
+klassifiziereDreieck in Java: Da für eine vollständige Zweigüberdeckung jede Steuerbedingung mindestens einmal war und einmal falsch werden muss, bestimmen Sie
+zunächst diejenigen Stellen im Programm, an denen es Verzweigungen gibt und listen
+Sie diese auf.
+Suchen Sie nun nach Testfällen, sodass jeder Ast im Programm einmal aktiv wird. Erstellen Sie auch hier eine tabellarische Übersicht der Testfälle und geben Sie jeweils
+an, warum Sie diesen Testfall in die Menge aufgenommen haben.}
+    \begin{itemize}
+         \begin{tabular}{l|l|l|l}
+            Nr. &  branch & Beschreibung & Testfall (\& Erwarteter Rückgabewert) \\ \hline  
+            1 & Zeile:5 if & um den Ast zu erreichen & (1,2,2), Gleichschenklig \\ \hline 
+            2 & Zeile:10 if & um den Ast zu erreichen & (1,1,1), Gleichseitig \\ \hline 
+            3 & Zeile:18 if & um den Ast zu erreichen & (1,1,$\sqrt[2]{2})$, Rechtwinklig \\ \hline 
+            4 & Zeile:22 (else) & um den Ast zu erreichen & (2,3,4), Normal \\ \hline 
+        \end{tabular}
+    \end{itemize}
+
+
+% /////////////////////// d /////////////////////////
+\item{\itshape Fügen Sie all die in b) und c) entstandenen Testfälle zusammen zu einer Testfallmenge
+und führen Sie die Testfälle gedanklich aus. Welche Ihrer Testfälle sind erfolgreich?
+Beschreiben Sie etwaige Defekte, die Sie auf diesem Wege im Programm gefunden
+haben.}
+    \begin{itemize}
+         \begin{tabular}{l|l|l|l}
+            Nr &  Testfall (\& Erwarteter Rückgabewert) & Rückgabewert & Erfolgreich\\ \hline  
+            1 & (-1,3,5), Error & Error (OCL) & Ja (mit OCL)\\ \hline 
+            2 & (0,3,5), Error & Error (OCL) & Ja (mit OCL)\\ \hline 
+            3 & (1,1,1), Gleichseitig & Gleichschenklig & Nein \\ \hline 
+            4 & (1,1,$\sqrt[2]{2})$, Rechtwinklig & Gleichschenklig & Nein \\ \hline 
+            5 & (1,2,2), Gleichschenklig & Gleichschenklig & Ja\\ \hline 
+            6 & (2,3,4), Normal & Normal & Ja\\ \hline 
+            7 & (1,1,2), Error & Error (OCL) & Ja (mit OCL)\\ \hline 
+            8 & (MAX\_VALUE,2,MAX\_VALUE-1), Normal & Normal & Ja\\ \hline 
+        \end{tabular}
+    \end{itemize}
+
+% /////////////////////// e /////////////////////////
+\item{\itshape Haben Sie eine Anweisungsüberdeckung (engl. statement coverage, C0) erreicht? Wie
+geeignet erscheinen Ihnen die beiden genannten Überdeckungskriterien C0 und C1?}
+
+    \begin{itemize}
+        \item In diesem Fall ist das benutzen von $C_0$ und $C_1$ zum Testen genau gleich, da $C_0$ auch verlangt hätte, dass wir in alle Zweige gehen. (Da alle Anweisungen einmal ausgeführt werden müssen) 
+        \item Deshalb haben wir die Anweisungsüberdeckung auch nicht erreicht, da die Anweisung der if Bedienung in Zeile 10 nie ausgeführt werden kann.
+        \item Uns scheinen die beiden Überdeckungskritierein $C_0$ und $C_1$ als geeignet, da sie genau die gleichen Versagen wie die Black-Box gefunden haben. (Und das sogar mit weniger Testfällen)
+    \end{itemize}
+
+% /////////////////////// f /////////////////////////
+\item{\itshape Wie geeignet erscheinen Ihnen die beiden angewandten Testfallerzeugungsverfahren
+Funktionstest und Strukturtest?}
+    \begin{itemize}
+        \item In diesem Fall sind beide Testfallerzeugunsverfahren gleich geeignet, da wir für beide die gleichen Versagen gefunden haben. 
+        \item Wir bevorzugen etwas den Strukturtest (White box), da wir diesen schneller durchführen konnten.
+        \item Der Funktionstest (Black box) hat dafür etwas mehr Zeit in anspruch genommen, jedoch hat sich dadurch auch unser Verständnis der Spezifikation verbessert.
+    \end{itemize}
+
+
+% /////////////////////// g /////////////////////////
+\item{\itshape Gibt es weitere Versagensmöglichkeiten, die die Testfälle nicht aufgedeckt haben? Wie
+haben Sie diese entdeckt? Wie nennt sich diese „Entdeckungstechnik“?}
+    \begin{itemize}
+        \item Unser Testfall 8 könnte trotzdem Fehlerhaft ausgeführt werden, auch wenn wir ein richtiges Ergebnis bekommen haben. Im Code wird nämlich mit dem Input gerechnet(Addition und Multiplikation). Bei großen Zahlen (also bei diesem Testfall) kann es dadurch zu einen Overflow kommen. Entdeckungstechnik: Allgemeine Erfahrung, Intuition oder durch Durchsicht.
+    \end{itemize}
+    
+    
+\end{enumerate}
+
+
+% /////////////////////// Task 3 ///////////////////////// in Arbeit bei Jonnie <3
+\section{Eigenen Code testen}
+% #keinBock mache ich . ich schau mir aber noch kurz die Vorlesung an. Bin dann mal afk schreib mir falls doch noch was ist
+\begin{enumerate}[(a)]
+    \item{\itshape Eine der „goldenen“ Regeln im Bereich der Softwareentwicklung lautet:
+„Ein/e Programmierer/in sollte nicht den eigenen Code testen.“
+Mit welchen Problem müsste man rechnen, wenn man sich nicht an diese Regel hält?
+Erläutern Sie zwei verschiedene Probleme.
+Diskutieren Sie: Ist diese Regel sinnvoll?}
+\begin{itemize}
+    \item \textbf{Problem 1:} Der Programmierer erschafft einen Code und testet den nur mit bestimmten Beispielen, wo er denkt, dass es die einzigen Beispiele sind. Dabei kann es vorkommen, dass andere auf andere Beispiele stoßen können, die zu Grenzen an seinem Code führen können.
+    Oder auch triviale Sachen werden nach einer Änderung nicht getestet und am Anfang kann das sein, dass diese triviale Sachen funktionieren, aber später plötzlich nicht mehr.
+    \item \textbf{Problem 2:} Es kann vorkommen, dass am Code alles richtig ist, doch die Grundlage ist nicht richtig. Der Programmierer kann ein falsches Verständnis der Anforderungen haben und sein Code baut darauf auf. Der Code ist richtig, aber das Ziel hat er verfehlt.
+    \item \textbf{Problem 3:} Der Code, den der Programmierer entwickelt, testet er nur isoliert. Später wird der Code wahrscheinlich ein Teil des Systems sein. Auch da könnte es zu Schwierigkeiten kommen und sollte vorher von einer anderen Person getestet werden.
+\end{itemize}
+\item{\itshape Recherchieren und erklären Sie, was man unter Test-Driven Development (TDD) versteht.
+Erläutern Sie, wie TDD bei der in a) angesprochenen Problematik hilft.}\\
+\begin{itemize}
+    \item Beim TDD werden Tests benutzt um den Softwarezyklus zu steuern. Dabei wird erstmal ein Test geschrieben, der nicht funktioniert, da der Code noch nicht vorhanden ist.
+    \item Danach wird der Code geschrieben, bis der Test erfolgreich abläuft. Als nächstes folgt das Refactoring, hierbei wird der Code und Test gleichermaßen aufgeräumt. Nach dem Refactoring fängt man wieder von vorne an.
+    \item Die Vorteile liegen auf der Hand, der Code wird immer getestet, das bedeutet, dass triviale Sachen jeder Zeit getestet werden (Problem 1). Der Code ist sauber, das bedeutet, dass auch andere drüber gucken können und man selber kommt auch nicht durch den sogenannten "Spaghetti-Code" durcheinander.
+    \item  So kann man sich auch auf das wesentliche konzentrieren.
+Ein weiterer Vorteil ist auch, dass jemand anderes diesen Test schreiben kann z.B. jemand der die Anforderungen verstanden hat (Problem 2).
+\end{itemize}
+\end{enumerate}
+\textbf{Quellen:} \\
+    \item ``Was ist testgetriebene Entwicklung?'', \url{https://www.it-agile.de/agiles-wissen/agile-entwicklung/was-ist-testgetriebene-entwicklung/#:~:text=Bei%20der%20testgetriebenen%20Entwicklung%20(engl,wird%20geschrieben%2C%20der%20zunächst%20fehlschlägt.} [aufgerufen am 20.06.2021]
+\end{document}

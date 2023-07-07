@@ -1,0 +1,30 @@
+#Mehfraches korrigieren nicht erlaubt
+context Lösung::korrigieren(p : int)
+    pre:
+        self.punkte->size() = 0 and
+        p >= 0 and
+        p <= self.aufgabe.punktzahl and
+        self.teilnehmer.zugelassen
+
+    post:
+        self.punkte = p
+        self.punkte->size() = 1 #Vielleicht unnötig?
+        self.teilnehmer.gesamtpunktzahl = self.teilnehmer.gesamtpunktzahl@pre + p
+
+
+#Mehfraches korrigieren erlaubt
+context Lösung::korrigieren(p : int)
+    pre:
+        p >= 0 and
+        p <= self.aufgabe.punktzahl
+        and self.teilnehmer.zugelassen
+
+    post:
+        self.punkte = p
+        self.punkte->size() = 1 #Vielleicht unnötig?
+        self.teilnehmer.gesamtpunktzahl = self.teilnehmer.gesamtpunktzahl@pre - self.punkte@pre + p
+
+
+#Klausur.punkteanzahl()
+context Klausur::punkteanzahl : int
+    result = self.aufgaben.punktzahl->sum()

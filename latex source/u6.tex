@@ -1,0 +1,100 @@
+\input{src/header}
+
+\newcommand{\dozent}{Lutz Prechelt}
+\newcommand{\tutor}{Samuel Domiks}
+\newcommand{\tutoriumNo}{02\\Materialien: Latex, Skript}
+\newcommand{\ubungNo}{06}
+\newcommand{\veranstaltung}{Softwaretechnik}
+\newcommand{\semester}{SoSe21}
+\newcommand{\studenten}{Jonny Lam \& Thore Brehmer}
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{src/titlepage}
+
+% /////////////////////// Task 1 /////////////////////////
+\section{Begrifflichkeiten & Statisches Objektmodell}
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Grenzen Sie folgende Begriffe gegeneinander ab: Problembereichsklassen (application domain classes) vs. Lösungsklassen (solution domain classes)}
+    \begin{itemize}
+        \item \textbf{Application domain classes} sind Klassen von der Anwendungsdomäne (Problembereich/Anwendungsbereich). Sie werden mithilfe von Domain wissen und Anforderungsermittlung erstellt. Sie sind eine Abstraktion aus der Anwendungsdomäne,
+        \item \textbf{Solution domain classes} sind Klassen die aus Technischen Gründen erstellt wurden, da sie bei der Lösung des Problem hilft. Sie werden also nicht in der Anwendungsdomain widergespiegelt. 
+    \end{itemize}
+   
+    % /////////////////////// b /////////////////////////
+    \item {\itshape Nennen Sie für jeden Begriff aus Teilaufgabe a) ein konkretes Beispiel aus dem Bereich Ihrer eigenen Softwareprojekt-Idee.}
+    \begin{itemize}
+            \item \textbf{Application domain classes}: Klassen aus der Anwedungsdomäne könnten sein: Kunde, Kassierer, Quittung, da  sie aufjedenfall ein Teil der Domäne sind und nicht zur Lösungsdomäne gehören, da sie nicht bei der Lösung hilft.
+            \item \textbf{Solution domain classes} Hier sind Klassen gefragt, die aus technischen Gründen eingeführt sind und bei der Lösung unserer Probleme helfen. Dies könnten sein: DatenbankVerbindung, Speicher, Verschlüsselung.
+        \end{itemize}
+   
+\newpage
+    % /////////////////////// c /////////////////////////
+    \item {\itshape Recherchieren und beschreiben Sie den Unterschied zwischen den Klassendiagrammen, wie sie in den Phasen Analyse, Entwurf und Implementierung verwendet werden.}
+    \begin{itemize}
+            \begin{tabular}{|>\raggedright p{3cm}|>\raggedright p{3cm}|>\raggedright p{3cm}|>\raggedright p{3cm}|}
+            \hline
+                & \multicolumn{3}{c|}{\textbf{Entwicklungsphase}}  \\\hline 
+                \textbf{Aspekt} & \textbf{Analyse} & \textbf{Entwurf} & \textbf{Implementierung} &\hline  
+                Einsatzzweck & Dient als Grundlage der Kommunikation zwischen Analytikern, Experten der Anwendungsdomäne und den Endbenutzern des Systems. & Dient als Grundlage der Kommunikation zwischen dem Entwerfer und Implementierer. & Kommunikation zwischen Programmierer und dem Rechner. Dient als Grundlage für die Implementation einer Programmiersprache. &\\\hline  
+                Terminologie & application domain, relationship,  & application domain, interfaces & application domain, solution domain, interfaces &\\\hline  
+                Klassensemantik & Enthält nur die application domain class & Enthält nur application domain class und interfaces. & Enthält application domain class, solution domain class und interfaces. &\\\hline  
+                Assoziationssemantik & Assoziationen sind Beziehungen zwischen Klassen in der Realität. & Assoziationen sind „Verantwortlichkeiten“, d.H. ein Kassierer muss z.B. die Methode kassieren() bereitstellen, die von der Klasse Kunde aufgerufen wird. & Assoziationen sind Variablen. &\\\hline  
+                Detailgrad & Beschreibt Elemente, die für den Anwendungsbereich relevant sind. &  Enthält Beschreibungen der Schnittstellen.& Enthält genaue Beschreibungen von Objekten aus dem Lösungsbereich. &\\\hline  
+                Zielgruppe & Analytiker, Kunde, Benutzer, Experten der Anwendungsdomäne & Spezifizierer, Benutzer, Implementierer & Erweiterer, Implementierer &\\\hline  
+        \end{tabular}
+    \end{itemize}       
+    
+\end{enumerate}
+
+\newpage
+% /////////////////////// Task 2 /////////////////////////
+\section{Dynamisches Objektmodell (1): Aktivitätsdiagramm}
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Aufgabe:Modellieren Sie den folgenden Anwendungsfall als UML-Aktivitätsdiagramm (Stichwort “activity”).}
+    \begin{itemize}
+        \item Das Diagramm liegt auch als png Datei bei, falls es auf der Pdf zu unleserlich ist.
+    \end{itemize}
+    
+    \begin{center}
+        \includegraphics[angle=90,width=0.8\linewidth]{src/u6/U6_2.png}
+    \end{center}
+
+\end{enumerate}
+
+
+% /////////////////////// Task 3 /////////////////////////
+\section{Dynamisches Objektmodell (2): Zustandsdiagramm}
+\begin{enumerate}[(a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape In Zustandsdiagrammen (statechart diagrams) können Aktionen/Aktivitäten zum einen an Zustandsübergängen (transitions) und zum anderen in den Zuständen (states) gebunden werden. Wie unterscheiden sich diese beiden Alternativen hinsichtlich ihrer Notation? Was ist der semantische Unterschied?}
+    \begin{itemize}
+        \item Im folgenden Bild sind zwei Zustandsdiagramme zu sehen. Eins benutzt Aktionen/Aktivitäten in \textbf{Transitionen (äußere Transitionen)} und das andere in \textbf{States (innere Transitionen)}. Unterschiede in der Notation sollte durch das Bild erkenntlich werden. 
+        \item Trotz der Unterschiedlichen Notation sagen beide Diagramme das gleiche aus. Also ist es lediglich Präferenz welche Notation man besitzt. Je nachdem in welcher Situation man sich gerade befindet (z.B bereits viele äußere Transitionen oder bereits viele innere Transitionen benutzt) kann die gegenteilige Notation eine bessere Übersicht bieten
+        
+        \includegraphics[width=0.7\textwidth]{src/u6/U6_3a.png}
+        
+    \end{itemize}
+    
+    % /////////////////////// b /////////////////////////
+    \item \itshape{ Erstellen Sie ein Zustandsdiagramm für eine elektrische Wäscheschleuder (wie abgebildet zum Trocknen von Wäsche).}
+    \begin{itemize}
+        \includegraphics[width=0.9\textwidth]{src/u6/U6_3b.png}
+    \end{itemize} 
+
+
+\end{enumerate}
+
+
+% /////////////////////// Quellen /////////////////////////
+\section{Quellen}
+\begin{itemize}
+    \item Für 1a: Vorlesung 7, Seite 36
+    \item Für 1c: Vorlesung und \href{https://ase.in.tum.de/lehrstuhl_1/files/teaching/Lehrstuhl/Informatik2SoSe2004/S04_01_UML.pdf}{Skript von ase.in.tum.de}
+    \item Für 2: Tutorium PDF
+    \item Für 3: Tutorium PDF und \href{https://de.wikipedia.org/wiki/Zustandsdiagramm_(UML)#Innere_Transitionen_und_%C3%A4u%C3%9Fere_Transitionen}{wiki/Zustandsdiagramm}
+\end{itemize}
+
+\end{document}

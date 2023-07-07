@@ -1,0 +1,372 @@
+\input{src/header}
+
+\newcommand{\dozent}{Lutz Prechelt}
+\newcommand{\tutor}{Samuel Domiks}
+\newcommand{\tutoriumNo}{02\\Materialien: Latex, Skript, Requirements Engineering: A Roadmap}
+\newcommand{\ubungNo}{04}
+\newcommand{\veranstaltung}{Softwaretechnik}
+\newcommand{\semester}{SoSe21}
+\newcommand{\studenten}{Jonny Lam \& Thore Brehmer}
+
+
+% /////////////////////// BEGIN DOKUMENT /////////////////////////
+\begin{document}
+\input{src/titlepage}
+
+% /////////////////////// Aufgabe 1 /////////////////////////
+\section{Aufgabe: Paper „Requirements Engineering: A Roadmap“}
+\begin{enumerate}[a)]
+
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Welche Aspekte des Requirements Engineerings (RE) nennen die Autoren in ihrer Definition von RE?}
+    \begin{itemize}
+        \item \underline{Definition from author:} systems requirements engineering (RE) is the process of discovering that purpose, by \textbf{identifying stakeholders} and \textbf{their needs}, and \textbf{documenting these} in a form that is amenable to analysis, communication, and subsequent implementation. (page 1, column 1, paragraph 2)
+        \begin{itemize}
+            \item \textbf{Stakeholders} may be numerous and distributed. (page 1, column 1, paragraph 2)
+            \item \textbf{Their needs (goals)} may vary and conflict, depending on their perspectives and their goals may not be explicit or may be difficult to articulate and inevitably. (page 1, column 1, paragraph 2)
+        \end{itemize}
+        
+        \item \underline{Definition from Zave:} Requirements engineering is the branch of software engineering  concerned  with  the  \textbf{real-world  goals}  for, functions  of,  and  constraints  on  software  systems.  It is  also  concerned  with  the  relationship  of  these factors to \textbf{precise specifications} of software behavior, and to their \textbf{evolution over time and across software families}. (page 1, column 2, paragraph 4)
+        \begin{itemize}
+            \item \textbf{real-world goals} motivate the development of a software system. (page 1, column 2, paragraph 5)
+            \item \textbf{precise specifications} These provide the basis for analysing  requirements,  validating defining  what  designers have to build, and verifying (page 1, column 2, paragraph 5)
+            \item \textbf{evolution  over  time  and  across  software families} the need to reuse partial  specifications (page 1, column 2, paragraph 5)
+        \end{itemize}
+    \end{itemize}
+    
+\newpage 
+    % /////////////////////// b /////////////////////////
+    \item {\itshape Welche Disziplinen nennen die Autoren als Basis für RE und inwiefern kommt die jeweilige Disziplin im RE zum Tragen?}
+    \begin{itemize}
+        \item \textbf{Computer  science} plays a particularly important role, in  the  context  of  software  development. (page 2, column 1, paragraph 4)
+        \begin{itemize}
+            \item In RE it provides the framework to assess the feasibility of requirements as well as the tools by which software solutions are developed. (page 2, column 1, paragraph 4)
+        \end{itemize}
+        \item \textbf{Logic} provides a vehicle for performing analysis of software behaviour. (page 2, column 1, paragraph 5)
+        \begin{itemize}
+            \item In  RE, logic can be used to improve the rigour of the analysis performed, and to make the reasoning steps explicit. (page 2, column 1, paragraph 5)
+        \end{itemize}
+        \item \textbf{Cognitive psychology} provides an understanding of the difficulties people may have in describing their needs. (page 2, column 2, paragraph 3)
+        \item \textbf{Anthropology} provides a methodological approach to observing human activities that helps to develop a richer understanding of how computer systems may help or hinder those activities (page 2, column 2, paragraph 4)
+        \item \textbf{Sociology} provides an understanding of the political and cultural changes caused by computerisation (page 2, column 2, paragraph 5)
+        \begin{itemize}
+            \item These 3 points are use full for identifying the problem and opportunity. Which covers the questions: Which problem needs to be solved? Where is the problem? Whose problem is it? Why does it need solving? etc.
+        \end{itemize}
+        \item \textbf{Epistemology} helps by understanding of beliefs of stakeholders. (page 2, column 2, paragraph 7)
+        \item \textbf{Phenomenology} helps by understanding the question of what is observable in the world. (page 2, column 2, paragraph 7)
+        \item \textbf{Ontology} helps by understanding and question of what can be agreed on as objectively. (page 2, column 2, paragraph 7)
+        \begin{itemize}
+            \item These 3 disciplines become important whenever one wishes to talk about validating requirements, especially where stakeholders may have divergent goals and incompatible belief systems. They also become important when selecting a modelling technique. (page 2, column 2, paragraph 7)
+        \end{itemize}
+        \item \textbf{Linguistics} is important because RE is largely about communication. (page 2, column 2, paragraph 6)
+        \begin{itemize}
+            \item Can be useful for RE for instance to avoid ambiguity and to improve  understand ability and can also be used in requirements elicitation. (page 2, column 2, paragraph 6)
+        \end{itemize}
+     
+    \end{itemize}
+    
+    % /////////////////////// c /////////////////////////
+    \item {\itshape In welchem Zusammenhang stehen jeweils die theoretische und praktische Informatik zum RE?}
+    \begin{itemize}
+        \item \textbf{Theoretical computer} science provides the framework to assess the feasibility of requirements, 
+        \item while \textbf{practical computer} science provides the tools by which software solutions are developed. (page 2, column 1, paragraph 4)
+    \end{itemize}
+    
+\newpage    
+    % /////////////////////// d /////////////////////////
+    \item {\itshape Welche fünf grundlegenden Aktivitäten des RE nennen die Autoren und was sind derenjeweilige Kernpunkte?}
+    \begin{enumerate}[1]
+        \item \underline{Eliciting Requirements (and Requirements to elicit)}
+        \begin{itemize}
+            \item Information gathered during requirements elicitation often has to be \textbf{interpreted, analysed, modelled and validated} (page 3, column 2, paragraph 1)
+            \item \textbf{Find out what problem needs to be solved} helps by identifying system boundaries. (page 3, column 2, paragraph 2)
+            \item \textbf{Identifying system boundaries} are crucial and affect all subsequent elicitation efforts. (page 3, column 2, paragraph 2)
+            \item \textbf{Identifying stakeholders} for better understanding of the problem and to identify the stakeholders goals. (page 3, column 2, paragraph 3)
+            \item \textbf{Identifying the needs of different user classes} for usability. (page 3, column 2, paragraph 3)
+            \item \textbf{Eliciting high level goals} focuses the requirements engineer on the problem domain and the needs of the stakeholders, rather than on possible solutions to those problems. (page 3, column 2, paragraph 4)
+            \item Multiple \textbf{elicitation techniques} are described in section 4.2. They help by gathering the requirements. In section 4.3 the author tells us that every technique has its strengths and weaknesses, and is normally best suited for use in particular application domains (page 4, column 2, paragraph 2)
+        \end{itemize}
+        
+        \item \underline{Modelling and Analysing Requirements}
+        \begin{itemize}
+            \item \textbf{Modelling} is the construction of an abstract descriptions that are amenable to interpretation. This is a fundamental activity in RE. Modelling notation and partial models are also used as drivers to prompt further information gathering (page 4, column 2, paragraph 4)
+            \item Different \textbf{modelling approaches} offer different kind of analysis and reasoning (page 4, column 2, paragraph 5). In section 5.1 till 5.6 the author presents 6 different modeling approaches.
+        \end{itemize}
+        
+        \item \underline{Communicating Requirements}
+        \begin{itemize}
+            \item RE is also a process of facilitating \textbf{effective communication} of requirements   among different stakeholders. The way in which requirements are documented plays an important role in ensuring that they can be read, analysed, (re-)written, and validated. (page 5, column 2, paragraph 4)
+            Two major factors for effective communications are listed below.
+            \begin{itemize}
+                \item \textbf{Requirements management} is the ability, not only to write requirements but also to do so in a form that is readable and traceable by many, in order to manage their evolution overtime. (page 5, column 2, paragraph 6)
+                \item  \textbf{Requirements traceability} determines how easy it is to read,  navigate, query and change requirements documentation. (page 6, column 1, paragraph 2)
+            \end{itemize}
+        \end{itemize}
+        
+        \item \underline{Agreeing Requirements}
+        \begin{itemize}
+            \item \textbf{Maintaining agreement} with all stakeholders can be a problem, especially where stakeholders have divergent goals. (page 6, column 1, paragraph 3) Thus requirement validation and explicitly describing the requirements is a necessary precondition  not only for validating requirements, but also for resolving conflicts between stakeholders. (page 6, column 1, paragraph 3)
+        \end{itemize}
+\newpage        
+        \item \underline{Evolving Requirements}
+        \begin{itemize}
+            \item \textbf{Successful software systems always evolve} as the environment in which these systems operate changes and stakeholder requirements change. Therefore managing change is a fundamental activity in RE. (page 7, column 1, paragraph 4)
+            \item \textbf{Typical changes to requirements specifications} include adding or deleting requirements, and fixing errors. (page 7, column 1, paragraph 5)
+            \item \textbf{Managing changing requirements} a  process of managing documentation, as well as a process of recognising change through continued requirements elicitation,   re-evaluation  of  risk,  and  evaluation  of systems in their operational environment (page 7, column 1, paragraph 7)
+            \item each proposed change needs to be \textbf{evaluated} in terms of existing requirements and architecture so that the trade-off between the cost  and  benefit  of  making  a change can be assessed (page 7, column 2, paragraph 1)
+        \end{itemize}
+        
+    \end{enumerate}
+    
+    % /////////////////////// e /////////////////////////
+    \item {\itshape Welchen Vorteil der zielorientierten Anforderungserhebung nennen die Autoren?}
+    \begin{itemize}
+        \item High-level business goals can be refined repeatedly as part of the elicitation process, leading to requirements that can then be operationalised (page 5, column 1, paragraph 3).
+        \item Stakeholders may have goals that conflict with one another. Requirements negotiation attempts to resolve conflicts between stakeholders without necessarily    weakening satisfaction of each stakeholder’s goals (page 6, column 2, paragraph 3).
+    \end{itemize}
+    
+    % /////////////////////// f /////////////////////////
+    \item {\itshape Welches ist die Prämisse von der kontextuelle Erhebungstechniken ausgehen?}
+    \begin{itemize}
+        \item Contextual approaches are based on the premise that local context is vital for understanding social and organisational behaviour, and the observer must be immersed in this local context in order to experience how participants create their own social structures. (page 4, column 1, paragraph 9)
+    \end{itemize}
+    
+    % /////////////////////// g /////////////////////////
+    \item {\itshape Welche Modellierungstechniken für Anforderungen nennen die Autoren und was sind deren jeweilige Kernpunkte und Eignung?}
+    \begin{itemize}
+        \item \textbf{Enterprise Modelling}
+        \begin{itemize}
+            \item Enterprise modelling and analysis \emph{deals with} understanding an organisation’s structure, the  business rules that affect its operation, the goals, tasks and responsibilities of its constituent members and the data that it needs, generates and manipulates. (page 4, column 2, paragraph 6)
+            \item Enterprise modelling is often \emph{used to} capture the purpose of a system, by describing the behaviour of the organisation in which that system will operate. (page 5, column 1, paragraph 2)
+        \end{itemize}
+        
+        \item \textbf{Data Modelling}
+        \begin{itemize}
+            \item Data Modelling \emph{deals with} understanding, manipulating and managing information of computer-based systems as well of information systems (page 5, column 1, paragraph 4)
+            \item Data modelling is \emph{used to} decide what information the system will need to represent, and how the information held by the system corresponds to the real world phenomena being represented. (page 5, column 1, paragraph 4)
+            
+        \end{itemize}
+\newpage        
+        \item \textbf{Behavioural Modelling}
+        \begin{itemize}
+            \item Behavioural Modelling \emph{deals with} modelling the dynamic or functional behaviour of  stakeholders and systems. It starts by modelling how the work is currently carried out (the current physical system), then it analyses this to determine the essential functionality (the current logical system), and then it finally builds of model of how the new system ought to operate (the new logical system). (page 5, column 1, paragraph 5)
+            \item Behavioural Modelling is \emph{used to} for distinction between modelling an existing system and modelling a future system. (page 5, column 1, paragraph 5)
+            \item These  methods  provide  different  levels  of precision  and  are  amenable  to  different  kinds  of  analysis. (page 5, column 1, paragraph 6) 
+        \end{itemize}
+        
+        \item \textbf{Domain Modelling}
+        \begin{itemize}
+            \item Domain Modelling \emph{deals with} developing a domain descriptions
+            \item Domain Modelling is \emph{used to} get detailed reasoning about (and therefore validation of) what is assumed about the domain, to provide opportunities for requirements reuse within a domain and to gain tractable reasoning over a closed world model of the system interacting with its environment. (page 5, column 2, paragraph 1) 
+        \end{itemize}
+        
+        \item \textbf{Modelling Non-Functional Requirements (NFRs)}
+        \begin{itemize}
+            \item Modelling NFRs \emph{deals with and is used to} analysing non-functional requirements, as they are generally more difficult to analyse. NFRs is also known as quality requirements, such as
+            security, reliability and usability. (page 5, column 2, paragraph 2) 
+        \end{itemize}
+        
+        \item \textbf{Analysing Requirements Models}
+        \begin{itemize}
+            \item Analysing Requirements Models \emph{deals with} analyse requirements. (page 5, column 2, paragraph 3) 
+            \item Analysing Requirements Models is \emph{used for} the opportunity this provides for analysing  them (make is easier to analyse). (page 5, column 2, paragraph 3) 
+        \end{itemize}
+    \end{itemize}
+    
+    % /////////////////////// h /////////////////////////
+    \item {\itshape Was sagen die Autoren hinsichtlich der Gemeinsamkeit von Anforderungen und wissenschaftlicher Theorien?}
+    \begin{itemize}
+        \item The author says that the problem of validating requirements \emph{can be compared} with the problem of validating scientific knowledge. (page 5, column 1, paragraph 6) 
+        \item In RE, this says that the \emph{requirements describe some objective problem} that exists in the world and that \emph{validation is the task of making sufficient empirical observations} to check that this problem has been captured correctly. (page 5, column 2, paragraph 1) 
+    \end{itemize}
+\end{enumerate}    
+
+
+\newpage
+% /////////////////////// Aufgabe 2 /////////////////////////
+\section{Aufgabe: Anforderungs bestimmung für Ihre Softwareidee}
+{\itshape Erheben Sie (z.B. per Introspektion) und beschreiben Sie mindestens 10 Anforderungen für Ihre Softwareidee:}
+
+\begin{enumerate} [a)]
+
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Gruppieren Sie diese nach den Zielgruppen Ihrer Software (falls es verschiedene gibt).}
+    
+    % /////////////////////// b /////////////////////////    
+    \item {\itshape In  der  Vorlesung  wurden  verschiedene  Typen  von  Anforderungen  vorgestellt  (siehe Folie “Types of Requirements”). Geben Sie zu jeder Ihrer Anforderung den jeweiligen Typ an.}
+    
+    \begin{tabular}{l|l|l}
+        \textbf{Anforderung} & \textbf{Zielgruppe} & \textbf{Type}\\ 
+        \hline  
+        1. Einscannen eines Beleges & Kunde & Funktional \\
+        2. Aufrufen von Belegen & Kunde & Funktional \\
+        3. Lokales Speichern des Belegs & Kunde & Funktional \\
+        4. Export von Belegen (z.B. in PDF) & Kunde & Funktional \\
+        5. Speichern des Belegs in der Datenbank & Kunde & Funktional \\
+        6. Account erstellen/login (für Datenbank) & Kunde & Funktional \\
+        7. Einfache Bedienbarkeit & Kunde und Kassierer & nicht Funktional \\
+        8. Schnelle Bearbeitung von Scans & Kunde und Kassierer & nicht Funktional \\
+        9. Sicher (Datenschutz) & Kunde & Sicherheitsanf. \\
+        10. Verschiedene Übersetzungen & Kunde & Pseudoanf. \\
+        11. Sortieren und einordnen von Belege & Kunde & Funktional \\
+        12. Belege mit Filter suchen (Beispiel: Lebensmittel, Haushaltswaren) & Kunde & Funktional \\
+        13. Geringer Speicher verbrauch von Belegen & Kunde & nicht Funktional \\
+        14. Einfache Integration in das bestehende System & Kassierer & nicht Funktional \\
+        15. Button der den Scan vorbereitet & Kassierer & Funktional \\
+    \end{tabular}
+    
+\end{enumerate}
+
+
+
+% /////////////////////// Aufgabe 3 /////////////////////////
+\section{Aufgabe: Anforderungsmodellierung in einer fremden Domäne}
+{\itshape Aufgabe: Verstehen Sie die Problemdomäne (a) und b)), erkennen Sie Probleme und Möglichkeiten (c)) und bereiten Sie die Vervollständigung der Anforderungen vor (d)).}
+
+\begin{enumerate} [a)]
+    % /////////////////////// a /////////////////////////
+    \item {\itshape Beleuchten Sie zunächst die Eigenschaften der Domäne „Diensteinteilung in der Goethe-Bibliothek“. Listen Sie die relevanten Konzepte aus der in den beiden Gesprächen umrissenen Domäne, ihre Eigenschaften und Beziehungen untereinander auf. Denken Sie daran, dass Ihre Anforderungserhebung möglichst vollständig sein soll. Finden Sie mindestens \textbf{acht relevante Domänenkonzepte.} Wählen Sie eine geeignete Darstellungsform. Geben Sie zu jedem Konzept und jeder Konzept-Beziehung an, aus welchem der beiden Gespräche Sie es entnommen haben.}
+    
+    \begin{enumerate}[1.]
+        \item \textbf{Mitarbeiter pro Theke}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:}  min. 1 Person pro Etage
+            \item \emph{Beziehung:} mit der Einteilung
+        \end{itemize}
+        
+        \item \textbf{Verschiedene Mitarbeiter Ränge}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Azubis können nicht alleine an Theken sitzen
+            \item \emph{Beziehung:} mit der Einteilung und Mitarbeiter pro Theke
+        \end{itemize}
+        
+        \item \textbf{Mitarbeiter benötigen Ausbildung}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:}  Azubis werden von Praxisanleiterin betreut
+            \item \emph{Beziehung:} mit der Einteilung und Mitarbeiter pro Theke
+        \end{itemize}
+\newpage        
+        \item \textbf{Mitarbeiter werden eingeteilt}
+        \begin{itemize}
+            \item \emph{Beziehung:} zu allen anderen Konzepten
+        \end{itemize}
+        
+        \item \textbf{Mitarbeiter können verhindert sein}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Urlaub oder krank
+            \item \emph{Beziehung:} mit der Einteilung und Plan Änderung
+        \end{itemize}
+        
+        \item \textbf{Mitarbeiter haben Zeitliche Präferenzen}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Eher morgens oder abends
+            \item \emph{Beziehung:} mit der Einteilung und Plan Änderung 
+        \end{itemize}
+        
+        \item \textbf{Der Plan gilt nur für eine bestimmte Zeit}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Für eine Woche
+            \item \emph{Beziehung:} mit Mitarbeiter werden eingeteilt
+        \end{itemize}
+        
+        \item \textbf{Der Plan wird, zu einer bestimmten Zeit für alle Mitarbeiter ersichtlich, aufgehängt}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Am Montag morgen ans Schwarze Brett
+            \item \emph{Beziehung:} mit Plan Änderung
+        \end{itemize}
+        
+        \item \textbf{Plan Änderungen}
+        \begin{itemize}
+            \item \emph{Beispiel/ Eigenschaft:} Bei Fehlern wird der Plan wird auch noch nach Veröffentlichung angepasst.
+            \item \emph{Beziehung:} mit Präferenzen und Verhinderungen
+        \end{itemize}
+        
+    \end{enumerate}
+    
+    % /////////////////////// b /////////////////////////    
+    \item {\itshape Schauen Sie sich nun zusätzlich zu den Gesprächen auch den kopierten Dienstplan genauer an. Dabei sollte Ihnen eine Reihe offener Fragen zu Ihrer Domänenmodellierung aus Aufgabe a) einfallen. Das können z.B. fehlende Konzepte, unvollständige Konzepte, oder unklare Beziehungen zwischen Konzepten sein. Achten Sie auch auf uneindeutige Aussagen in den Gesprächen. Listen Sie mindestens \textbf{acht offene Fragen} auf, die sich aus den bisherigen Betrachtungen der Problem domäne ergeben haben. Formulieren Sie die Fragen so, dass Sie diese in einer zweiten Interview-Runde stellen könnten.}
+    
+    \begin{enumerate}[1.]
+        \item Wie lang ist die Frühschicht?
+        \item Wie lang ist die Spätschicht?
+        \item Wie lang ist der Mitteldienst?
+        \item Wie lang ist die Mittagspause & Pausendienst?
+        \item Was bedeutet "{}Ohne Pultdienst"?
+        \item Was bedeutet "Nicht eingesetzte Reserve"?
+        \item Es scheint, als wäre eine Reserve nicht immer von Nöten. Wann braucht man eine Reserve und wann nicht?
+        \item Wann wir jemand im EG von 10-13 benötigt?
+        \item Warum sind in manchen Einträgen Zeiteinheiten und in vielen anderen nicht?
+        \item Warum gibt es am Samstag keine Einteilung in OG und Uhrzeit?
+        \item Auf welche Präferenzen wurde bei dieser Mitarbeiter Einteilung besonders geachtet?
+        \item Werden Azubis und andere Mitarbeiter Ränge auf dem Plan gekennzeichnet?
+        \item Können nur sie den Plan erstellen und verändern?
+        
+    \end{enumerate}
+    
+    % /////////////////////// c /////////////////////////    
+    \item {\itshape Wenden Sie sich nun den eigentlichen Anforderungen zu. Die bisherigen Gespräche haben keine expliziten Aussagen dazu gemacht, was genau das neue Planungssystem tun soll. Identifizieren Sie zuerst etwaige Zielgruppen und benennen Sie deren aktuell auftretende \textbf{Probleme und Schwierigkeiten}. Formulieren Sie mindestens \textbf{drei funktionale Anforderungen} so, dass die späteren Anwender/innen sie verstehen würden. Gehen Sie hier eher in die Breite statt in die Tiefe, d.h. achten Sie auf die Vollständigkeit der Anforderungen; es geht hier noch nicht um detaillierte Nutzerinteraktionen. Formulieren Sie nur Anforderungen von deren Korrektheit Sie bereits überzeugt sind.}
+    \begin{itemize}
+        \item \textbf{Zielgruppe}
+        \begin{itemize}
+            \item Leitung (Ersteller des Planes)
+            \item Mitarbeiter (Benutzer des Planes)
+        \end{itemize}
+        \item \textbf{Probleme und Schwierigkeiten}
+        \begin{itemize}
+            \item \textbf{Leitung}
+            \begin{itemize}
+                \item Zeitliche Präferenzen von Mitarbeitern Unbekannt
+                \item Verhinderungen von Mitarbeitern Unbekannt
+                \item Fehler können beim erstellen der Pläne entstehen
+                \item Das alles im Auge zu behalten ist schwer und Zeit intensiv
+            \end{itemize}
+            \item \textbf{Mitarbeiter}
+            \begin{itemize}
+                \item Gewünschte zeitlichen Präferenzen werden nicht beachtet
+                \item Plan bis Montags unbekannt, daher muss man Montags früh zur Arbeit, auch wenn man keine Schicht hat.
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{Funktionale Anforderungen}
+        \begin{enumerate}[1.]
+            \item Präferenzen und Verhinderungen sollten von Mitarbeitern angegeben werden können.
+            \item Alle Mitarbeiter sollten den Plan erhalten.
+            \item Es sollte Fehlerfrei einen Plan erstellen werden können.
+            \begin{enumerate}[3.1]
+                \item Es wird auf einsatzbereites Personal geachtet
+                \item Es wird auf Präferenzen und Verhinderungen geachtet
+                \item Jede Theke soll mit der richtigen Anzahl versorgt werden
+            \end{enumerate}
+        \end{enumerate}
+    \end{itemize}
+    
+    
+    % /////////////////////// d /////////////////////////    
+    \item {\itshape Sicherlich sind Ihnen auch bei den geplanten Systemfunktionalitäten Lücken oder unklare Stellen aufgefallen. Formulieren Sie \textbf{mindestens zwei Fragen}, die Sie den Bibliotheksmitarbeitern stellen würden, um die mögliche Funktionalität eines in der o.g. Domäne hilfreichen Systems vollständig zu verstehen.}
+    \begin{enumerate}[1.]
+        \item Gibt es eine min und max Anzahl an Personal pro Theke und am Tag?
+        \item Wie viel darf ein Mitarbeiter pro Tag und pro Woche arbeiten?
+        \item Sollte unser Programm auch auf eine minimale Arbeitszeit achten? So das jeder Mitarbeiter mindestens eine festgelegte Zeit pro Woche oder Monat an Arbeitsstunden zugeteilt bekommt? 
+    \end{enumerate}
+    
+\newpage    
+    % /////////////////////// e /////////////////////////    
+    \item {\itshape Welche der in der Vorlesung vorgestellten Erhebungstechniken wurden in diesem Projekt bereits angewendet? Sehen Sie ein Problem damit (z.B. hinsichtlich der Effektivität oder Effizienz)? Welche anderen Techniken würden sich hier noch anbieten? Begründen Sie.}
+    \begin{itemize}
+        \item \textbf{Benutzte Erhebungstechniken}
+        \begin{itemize}
+            \item \textbf{Introspection} (just sit down and think what the requirements may be)
+            \item \textbf{Interviews}
+            \item \textbf{Scenarios} (Example sequences of interaction between actor and system) (Timeplan of blackboard)
+        \end{itemize}
+        
+        \item \textbf{Vorschläge für weitere Erhebungstechniken}
+        \begin{itemize}
+            \item \textbf{Use user feedback:} vielleicht gibt es ungerechte Plan Verteilung, Bugs oder Benutzungs Schwierigkeiten.
+        \end{itemize}
+    \end{itemize}
+
+
+
+\end{enumerate}
+% /////////////////////// END DOKUMENT /////////////////////////
+\end{document}

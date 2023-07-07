@@ -1,0 +1,11 @@
+context klassifiziereDreieck(seite1: int, seite2: int, seite3: int)
+    pre:
+        #Keine negative Seitenlängen
+        seite1 > 0 and seite2 > 0 and seite3 > 0 and
+        #Zwei Seiten zusammen müssen größer sein als die dritte
+        #sonste => kein Dreieck
+        (
+        seite1 + seite2 > seite3 and
+        seite1 + seite3 > seite2 and
+        seite2 + seite3 > seite1
+        )
