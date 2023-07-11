@@ -1,4 +1,4 @@
-# Title
+# Software Engineering
 
 The purpose of this repository is to serve as data storage and to present the completed work of the course Softwaretechnik at Freie Universität Berlin.
 
